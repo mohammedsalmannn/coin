@@ -82,3 +82,60 @@ echo "Percentage of TH - "$percentage_of_TH
 percentage_of_HT=$(($HT*100/$coinFlip))
 echo "Percentage of HT - "$percentage_of_HT
 
+echo "*To Store The Triplet Combination And Its Percentage*"
+
+
+declare -A triplet
+tail=0;
+HHH=0;
+HHT=0;
+HTH=0;
+HTT=0;
+THH=0;
+TTT=0;
+THT=0;
+TTH=0;
+
+
+for((indexTwo=0; indexTwo<coinFlip; indexTwo++))
+do
+
+                flipFirst=$((RANDOM%2))
+                flipSecond=$((RANDOM%2))
+		flipThird=$((RANDOM%2))
+                if [[ $flipFirst -eq $head ]] &&  [[ $flipSecond -eq $head ]] && [[ $filpThird -eq $head ]]
+                then
+                        triplet[HHH]="HHH"
+                         ((++HHH))
+                elif [[ $flipFirst -eq $head ]] && [[ $flipSecond -eq $head ]] && [[ $flipThird -eq $tail ]]
+                then
+                         triplet[HHT]="HHT"
+                          ((++HHT))
+                elif [[ $flipFirst -eq $head ]]  && [[ $flipSecond -eq $tail ]] && [[ $flipThird -eq $head ]]
+                then
+			triplet[HTH]="HTH"
+                         ((++HTH))
+		elif [[ $flipFirst -eq $head ]]  && [[ $flipSecond -eq $tail ]] && [[ $flipThird -eq $tail ]]
+                then
+                        triplet[HTT]="HTT"
+                         ((++HTT))
+		elif [[ $flipFirst -eq $tail ]]  && [[ $flipSecond -eq $head ]] && [[ $flipThird -eq $head ]]
+                then
+                        triplet[THH]="THH"
+                         ((++THH))
+		elif [[ $flipFirst -eq $tail ]]  && [[ $flipSecond -eq $tail ]] && [[ $flipThird -eq $tail ]]
+                then
+                        triplet[TTT]="TTT"
+                         ((++TTT))
+		elif [[ $flipFirst -eq $tail ]]  && [[ $flipSecond -eq $head ]] && [[ $flipThird -eq $tail ]]
+                then
+                        triplet[THT]="THT"
+                         ((++THT))
+                else
+                        triplet[TTH]="TTH"
+                         ((++TTH))
+                fi
+                echo "Triplet Combination - " ${triplet[@]}
+done
+
+echo "Percentage Of Triplet Combination"
