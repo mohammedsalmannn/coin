@@ -139,3 +139,20 @@ do
 done
 
 echo "Percentage Of Triplet Combination"
+
+percentage_of_HH=$(($HHH*100/$coinFlip))
+echo "Percentage Of HHH - "$percentage_of_HHH
+percentage_of_HHT=$(( $HHT*100/$coinFlip ))
+echo "Percentage Of HHT - "$percentage_of_HHT
+percentage_of_HTH=$(($HTH*100/$coinFlip))
+echo "Percentage of HTH - "$percentage_of_HTH
+percentage_of_HT=$(($HTT*100/$coinFlip))
+echo "Percentage of HTT - "$percentage_of_HTT
+percentage_of_HH=$(($THH*100/$coinFlip))
+echo "Percentage Of THH - "$percentage_of_THH
+percentage_of_TT=$(( $TTT*100/$coinFlip ))
+echo "Percentage Of TTT - "$percentage_of_TTT
+percentage_of_TH=$(($THT*100/$coinFlip))
+echo "Percentage of THT - "$percentage_of_THT
+percentage_of_HT=$(($TTH*100/$coinFlip))
+echo "Percentage of TTH - "$percentage_of_TTH
